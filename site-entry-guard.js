@@ -1,0 +1,1 @@
+(()=>{let granted=false;try{granted=localStorage.getItem('eniglio-access-confirmed-v1')==='granted';}catch{}try{granted=granted||sessionStorage.getItem('eniglio-access-confirmed-v1')==='granted';}catch{}if(!granted){const lang=location.pathname.startsWith('/en/')?'en':'pt';location.replace('/?lang='+lang+'&return='+encodeURIComponent(location.pathname));}})();
