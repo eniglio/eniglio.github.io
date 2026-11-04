@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="/site-entry-guard.js"></script>
+  <link rel="canonical" href="https://eniglio.github.io/games/valor-em-jogo/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090c18">
+  <meta name="description" content="Jogo interativo: lidere um portfólio de IA, equilibre valor, orçamento, confiança e risco, e conquiste o título de Campeão de Valor.">
+  <title>Valor em Jogo — CIO Challenge</title>
+  <link rel="stylesheet" href="./game.css">
+</head>
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="shell">
+    <header class="top">
+      <div class="brand"><div class="brand-icon" aria-hidden="true">✦</div><div class="brand-name">VALOR EM JOGO<small>CIO CHALLENGE · TEMPORADA 01</small></div></div>
+      <div class="top-right"><a class="return-link" href="/jogos/">← JOGOS</a><div class="sim-pill"><i></i> SIMULAÇÃO INTERATIVA</div><div class="record-pill">SEU RECORDE <strong id="topRecord">—</strong></div></div>
+    </header>
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <div class="overline">Uma missão executiva. Cinco decisões.</div>
+        <h1>Seu portfólio.<br>Sua próxima<br><em>grande aposta.</em></h1>
+        <p class="hero-copy">Você assumiu o comando de um programa de IA com orçamento limitado e uma cobrança do conselho: <strong>prove valor antes de escalar.</strong> Escolha onde investir, proteja a confiança e conquiste o título de Campeão de Valor.</p>
+        <div class="hero-actions"><button class="play-btn" id="start">ACEITAR A MISSÃO <span>↗</span></button><span class="play-note">5 fases · decisões com consequências<br>Seu melhor resultado fica salvo neste navegador</span></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true"><div class="orbit"><i class="orbit-dot"></i><i class="orbit-dot two"></i></div><div class="core"><div class="core-inner"><div class="core-star">✦</div><div class="core-title">VALUE ENGINE</div></div></div><span class="orbit-label l1">PORTFÓLIO</span><span class="orbit-label l2">CONFIANÇA + VALOR</span><span class="orbit-label l3">ROI QUEST</span></div>
+    </section>
+    <div class="hero-bottom" id="heroStats"><div class="hero-stat"><strong>05</strong><span>Fases para vencer</span></div><div class="hero-stat"><strong>100</strong><span>Créditos de orçamento</span></div><div class="hero-stat"><strong>04</strong><span>Indicadores em jogo</span></div><div class="hero-stat"><strong id="bestHero">—</strong><span>Seu melhor placar</span></div></div>
+
+    <section class="game" id="game" aria-live="polite">
+      <div class="game-head"><div><div class="overline" id="gameOverline">MISSÃO EM ANDAMENTO</div><h2 id="gameTitle">Aurora Seguros · Sala de decisão</h2><p id="gameSubtitle">O conselho liberou 100 créditos. Faça cada escolha contar.</p></div><div class="sim-pill"><i></i><span id="roundBadge">FASE 01 / 05</span></div></div>
+      <div class="stage-map" id="stageMap"></div>
+      <div class="dashboard" id="dashboard"></div>
+      <div class="main-grid">
+        <section class="mission"><div class="mission-top"><div class="mission-tag" id="missionTag">FASE 01 · PORTFÓLIO</div><div class="mission-number" id="missionNumber">DESAFIO 01</div></div><div class="mission-content" id="missionContent"></div></section>
+        <aside class="side">
+          <div class="side-heading"><h3>PAINEL DO CONSELHO</h3><span id="panelPhase">VALOR EM TEMPO REAL</span></div>
+          <div class="chart-wrap"><svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Gráfico de evolução do valor, confiança e risco"><line x1="28" y1="24" x2="342" y2="24" class="gridline"/><line x1="28" y1="70" x2="342" y2="70" class="gridline"/><line x1="28" y1="116" x2="342" y2="116" class="gridline"/><text x="3" y="27" class="axis-label">100</text><text x="10" y="73" class="axis-label">50</text><text x="15" y="119" class="axis-label">0</text><path class="line-value" id="lineValue" d=""/><path class="line-trust" id="lineTrust" d=""/><path class="line-risk" id="lineRisk" d=""/><g id="chartDots"></g></svg><div class="chart-legend"><span><i style="--legend:var(--lime)"></i>VALOR</span><span><i style="--legend:var(--cyan)"></i>CONFIANÇA</span><span><i style="--legend:var(--red)"></i>RISCO</span></div></div>
+          <div class="tip-box"><div class="tip-label">⚡ INTEL DO CONSELHO</div><p id="tipText">Escolha uma iniciativa ligada a um resultado que alguém da empresa seja responsável por entregar.</p></div>
+          <div class="mini-map" id="miniMap"></div>
+          <div class="risk-line">CONDIÇÃO DE VITÓRIA <b>valor alto + confiança + risco controlado</b></div>
+        </aside>
+      </div>
+    </section>
+    <section class="end-screen" id="endScreen">
+      <div class="champion"><div class="trophy">🏆</div><div class="eyebrow">MISSÃO CONCLUÍDA · AURORA SEGUROS</div><h2 id="rankTitle">VOCÊ É <span>CAMPEÃO DE VALOR</span></h2><p class="champion-copy" id="rankCopy">O conselho aprovou seu plano. Você construiu uma jornada de IA com valor demonstrável, guardrails e decisões de investimento claras.</p><div class="final-score"><span id="finalScore">0</span><small> / 100 · PLACAR DE MISSÃO</small></div><div class="result-grid" id="resultGrid"></div><div class="final-note" id="finalNote"></div><div class="end-actions"><button class="play-btn" id="again">JOGAR DE NOVO <span>↻</span></button><button class="ghost-btn" id="share">COPIAR MEU RESULTADO ↗</button></div><p class="disclaimer">JOGO DIDÁTICO E FICCIONAL. CRÉDITOS, PONTUAÇÃO E CENÁRIO NÃO REPRESENTAM ORÇAMENTO, RETORNO FINANCEIRO OU DADOS DE UMA EMPRESA REAL.</p></div>
+      <div class="end-footer"><span>VALOR EM JOGO · CIO CHALLENGE</span><span id="bestText">RECORDE LOCAL: —</span></div>
+    </section>
+    <footer class="end-footer" id="siteFooter"><span>VALOR EM JOGO · CIO CHALLENGE</span><span>JOGO LOCAL · SEM API · SEM DADOS PESSOAIS</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status">Resultado copiado.</div>
+  <script defer src="./game.js"></script>
+  <noscript><p style="padding:24px;text-align:center">Este jogo precisa de JavaScript habilitado para funcionar.</p></noscript>
+
+</body>
+</html>
