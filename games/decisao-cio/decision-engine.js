@@ -87,7 +87,7 @@ export function calculateReadiness(state, stage = 0) {
   if (state.decision) {
     const sensible = c.net < 0 ? ['stop', 'pilot'].includes(state.decision) :
       evidence < 10 ? ['pilot', 'stop'].includes(state.decision) :
-      state.solution === 'platform' ? ['pilot', 'stop'].includes(state.decision) :
+      state.solution === 'platform' ? ['pilot', 'stop', 'build', 'buy'].includes(state.decision) :
       ['pilot', 'extend', 'buy'].includes(state.decision);
     if (state.decision === 'build' && (state.solution !== 'platform' || evidence < 15 || c.net < 0)) decision = 1;
     else if (['extend', 'buy'].includes(state.decision) && state.surface === 'custom') decision = 3;
