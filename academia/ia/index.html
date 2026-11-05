@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="/site-entry-guard.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f0e8">
+  <meta name="description" content="Aprenda engenharia de IA com uma trilha interativa: LLMs, APIs, Java, Python, RAG, agentes, avaliação, segurança e produção.">
+  <link rel="canonical" href="https://eniglio.github.io/academia/ia/">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/academia/ia/academy.css">
+  <title>AI Engineering Academy — aprenda construindo</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Eniglio Tech Press, início">
+      <img src="/assets/logo.svg" alt="" width="34" height="34">
+      <span>ENIGLIO <b>TECH PRESS</b></span>
+    </a>
+    <nav class="top-links" aria-label="Navegação principal">
+      <a href="#trilha">Trilha</a>
+      <a href="#laboratorios">Laboratórios</a>
+      <a href="#fontes">Fontes</a>
+      <a class="nav-back" href="/jogos/">Jogos <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main" class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> LABORATÓRIO DE APRENDIZAGEM · PT-BR</p>
+        <h1 id="hero-title">Não decore nomes.<br><em>Aprenda a construir.</em></h1>
+        <p class="hero-lead">Explore como LLMs funcionam, conecte modelos em Java e Python e pratique as decisões que fazem uma solução de IA ser útil, segura e operável.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#trilha">Começar a trilha <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" href="#laboratorios">Ir direto aos laboratórios</a>
+        </div>
+        <p class="hero-note"><span aria-hidden="true">◉</span> Sem cadastro · progresso salvo neste navegador · exemplos simulados, sem chamadas a modelos</p>
+      </div>
+      <div class="hero-visual" aria-label="Fluxo ilustrativo: pergunta, contexto, modelo, resposta avaliada">
+        <div class="visual-top"><span>UM SISTEMA DE IA</span><span class="live-mark"><i></i> FLUXO DE DECISÃO</span></div>
+        <svg class="pipeline-svg" viewBox="0 0 590 260" role="img" aria-labelledby="pipeline-title pipeline-desc">
+          <title id="pipeline-title">Etapas de um sistema de IA</title>
+          <desc id="pipeline-desc">A requisição passa por contexto e recuperação, segue para um modelo e termina em uma resposta que precisa de avaliação.</desc>
+          <defs><linearGradient id="flow" x1="0" x2="1"><stop offset="0" stop-color="#d5f36d"/><stop offset="1" stop-color="#70d9cc"/></linearGradient></defs>
+          <path class="pipeline-line" d="M87 126 H503" />
+          <path class="pipeline-progress" d="M87 126 H503" />
+          <g class="pipe-node node-a"><rect x="24" y="86" width="126" height="80" rx="18"/><text x="87" y="119" text-anchor="middle">PERGUNTA</text><text class="node-sub" x="87" y="141" text-anchor="middle">intenção + dados</text><circle cx="87" cy="69" r="4"/></g>
+          <g class="pipe-node node-b"><rect x="170" y="86" width="126" height="80" rx="18"/><text x="233" y="119" text-anchor="middle">CONTEXTO</text><text class="node-sub" x="233" y="141" text-anchor="middle">RAG + permissões</text><circle cx="233" cy="69" r="4"/></g>
+          <g class="pipe-node node-c"><rect x="316" y="86" width="126" height="80" rx="18"/><text x="379" y="119" text-anchor="middle">MODELO</text><text class="node-sub" x="379" y="141" text-anchor="middle">API + ferramentas</text><circle cx="379" cy="69" r="4"/></g>
+          <g class="pipe-node node-d"><rect x="462" y="86" width="106" height="80" rx="18"/><text x="515" y="119" text-anchor="middle">RESPOSTA</text><text class="node-sub" x="515" y="141" text-anchor="middle">teste + cuidado</text><circle cx="515" cy="69" r="4"/></g>
+          <text class="svg-caption" x="26" y="218">CADA ETAPA PODE AUMENTAR VALOR, CUSTO E RISCO.</text>
+        </svg>
+        <div class="visual-foot"><span>ENTENDER</span><span>EXPERIMENTAR</span><span>AVALIAR</span><span>OPERAR</span></div>
+      </div>
+    </section>
+
+    <section class="score-strip" aria-label="Seu progresso">
+      <div class="score-label"><span class="score-icon">✦</span><span><b id="levelName">Explorador</b><small id="scoreCaption">Seu percurso começa aqui</small></span></div>
+      <div class="progress-wrap"><div class="progress-copy"><span>Progresso da trilha</span><strong id="progressText">0 de 10 etapas</strong></div><div class="progress-track" role="progressbar" aria-label="Progresso da trilha" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progressBar"><span id="progressFill"></span></div></div>
+      <button class="reset-progress" id="resetProgress" type="button" title="Apagar progresso salvo neste navegador">Recomeçar</button>
+    </section>
+
+    <section class="section-block track-section" id="trilha" aria-labelledby="track-title">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span class="eyebrow-dot"></span> CAMINHO DE APRENDIZAGEM</p><h2 id="track-title">Dez etapas. Um sistema completo.</h2></div>
+        <p>Escolha uma etapa para abrir uma explicação curta e um desafio. Você pode avançar em qualquer ordem.</p>
+      </div>
+      <div class="track-layout">
+        <div class="module-grid" id="moduleGrid" aria-label="Etapas da trilha"></div>
+        <article class="lesson-card" id="lessonCard" aria-live="polite" aria-labelledby="lessonTitle"></article>
+      </div>
+    </section>
+
+    <section class="section-block lab-section" id="laboratorios" aria-labelledby="lab-title">
+      <div class="section-heading lab-heading">
+        <div><p class="eyebrow"><span class="eyebrow-dot"></span> MÃO NA MASSA</p><h2 id="lab-title">Laboratórios de decisão</h2></div>
+        <p>Altere as entradas, observe o efeito e descubra o que a demonstração não consegue provar.</p>
+      </div>
+      <div class="lab-frame">
+        <div class="lab-tabs" role="tablist" aria-label="Escolha um laboratório">
+          <button class="lab-tab active" id="tab-prompt" type="button" role="tab" aria-selected="true" aria-controls="labPanel" data-lab="prompt">01 · Prompts</button>
+          <button class="lab-tab" id="tab-api" type="button" role="tab" aria-selected="false" aria-controls="labPanel" data-lab="api" tabindex="-1">02 · Integração</button>
+          <button class="lab-tab" id="tab-rag" type="button" role="tab" aria-selected="false" aria-controls="labPanel" data-lab="rag" tabindex="-1">03 · RAG</button>
+          <button class="lab-tab" id="tab-agent" type="button" role="tab" aria-selected="false" aria-controls="labPanel" data-lab="agent" tabindex="-1">04 · Agentes</button>
+          <button class="lab-tab" id="tab-eval" type="button" role="tab" aria-selected="false" aria-controls="labPanel" data-lab="eval" tabindex="-1">05 · Avaliação</button>
+          <button class="lab-tab" id="tab-cost" type="button" role="tab" aria-selected="false" aria-controls="labPanel" data-lab="cost" tabindex="-1">06 · Produção</button>
+          <button class="lab-tab" id="tab-math" type="button" role="tab" aria-selected="false" aria-controls="labPanel" data-lab="math" tabindex="-1">07 · Matemática</button>
+          <button class="lab-tab" id="tab-tune" type="button" role="tab" aria-selected="false" aria-controls="labPanel" data-lab="tune" tabindex="-1">08 · LoRA</button>
+        </div>
+        <div id="labPanel" class="lab-panel" role="tabpanel" aria-labelledby="tab-api" tabindex="0"></div>
+      </div>
+    </section>
+
+    <section class="section-block field-guide" aria-labelledby="guide-title">
+      <div class="guide-heading"><p class="eyebrow"><span class="eyebrow-dot"></span> MAPA RÁPIDO</p><h2 id="guide-title">Qual ferramenta resolve qual problema?</h2><p>Comece pela necessidade do sistema. A técnica vem depois.</p></div>
+      <div class="guide-grid">
+        <article><span class="guide-number">A</span><h3>Precisa de conhecimento atualizado?</h3><p>Experimente <b>RAG</b> para buscar fontes no momento da pergunta. Meça recuperação e qualidade da resposta com os mesmos casos.</p><a href="#laboratorios" data-open-lab="rag">Abrir laboratório RAG ↗</a></article>
+        <article><span class="guide-number">B</span><h3>Precisa mudar o comportamento do modelo?</h3><p>Melhore o prompt e as avaliações primeiro. Considere <b>fine-tuning</b> quando exemplos de comportamento e qualidade de dados justificarem treinamento.</p><a href="#laboratorios" data-open-lab="tune">Abrir laboratório LoRA ↗</a></article>
+        <article><span class="guide-number">C</span><h3>Precisa executar uma ação?</h3><p>Use uma ferramenta com permissão mínima, validação no servidor, limites e aprovação humana quando o impacto pedir.</p><a href="#laboratorios" data-open-lab="agent">Abrir laboratório de agentes ↗</a></article>
+      </div>
+    </section>
+
+    <section class="section-block sources-section" id="fontes" aria-labelledby="sources-title">
+      <div class="section-heading"><div><p class="eyebrow"><span class="eyebrow-dot"></span> CONTINUE ESTUDANDO</p><h2 id="sources-title">Fontes oficiais para ir além</h2></div><p>Documentação muda. Consulte a referência do fornecedor ou projeto antes de adotar uma API ou configuração.</p></div>
+      <div class="source-list">
+        <a href="https://developers.openai.com/api/docs/guides/streaming-responses" target="_blank" rel="noopener noreferrer"><span>APIs de modelos</span><b>OpenAI · Streaming Responses ↗</b></a>
+        <a href="https://platform.claude.com/docs/en/api/overview" target="_blank" rel="noopener noreferrer"><span>APIs de modelos</span><b>Anthropic · API overview ↗</b></a>
+        <a href="https://ai.google.dev/api/generate-content" target="_blank" rel="noopener noreferrer"><span>APIs de modelos</span><b>Gemini · Generate content ↗</b></a>
+        <a href="https://docs.spring.io/spring-ai/reference/api/chatclient.html" target="_blank" rel="noopener noreferrer"><span>Java</span><b>Spring AI · ChatClient ↗</b></a>
+        <a href="https://docs.langchain4j.dev/tutorials/ai-services/" target="_blank" rel="noopener noreferrer"><span>Java</span><b>LangChain4j · AI Services ↗</b></a>
+        <a href="https://github.com/pgvector/pgvector" target="_blank" rel="noopener noreferrer"><span>RAG / Postgres</span><b>pgvector · projeto e operadores ↗</b></a>
+        <a href="https://modelcontextprotocol.io/specification/2026-07-28/server/tools" target="_blank" rel="noopener noreferrer"><span>Agentes / MCP</span><b>Model Context Protocol · Tools ↗</b></a>
+        <a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer"><span>Segurança</span><b>OWASP · LLM Top 10 ↗</b></a>
+        <a href="https://huggingface.co/docs/peft/main/en/index" target="_blank" rel="noopener noreferrer"><span>Modelos / LoRA</span><b>Hugging Face · PEFT ↗</b></a>
+        <a href="https://pytorch.org/tutorials/" target="_blank" rel="noopener noreferrer"><span>Python / ML</span><b>PyTorch · Tutoriais ↗</b></a>
+        <a href="https://docs.docker.com/" target="_blank" rel="noopener noreferrer"><span>Produção</span><b>Docker · Documentação ↗</b></a>
+        <a href="https://opentelemetry.io/docs/" target="_blank" rel="noopener noreferrer"><span>Observabilidade</span><b>OpenTelemetry · Documentação ↗</b></a>
+      </div>
+    </section>
+
+    <section class="closing-note" aria-label="Limites do aplicativo">
+      <span class="closing-mark" aria-hidden="true">i</span>
+      <p><b>Sobre as demonstrações:</b> os laboratórios usam cenários, documentos, métricas e preços fictícios para ensinar relações entre variáveis. Eles não chamam OpenAI, Anthropic, Gemini ou outros modelos, não verificam a qualidade real de uma resposta e não substituem testes com seus dados. Nenhuma chave de API é solicitada ou armazenada.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28"><span>ENIGLIO <b>TECH PRESS</b></span></a><span>© 2026 · Aprendizado aplicado em engenharia de IA</span><a href="/jogos/">Voltar aos jogos ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/academia/ia/academy.js" defer></script>
+</body>
+</html>
