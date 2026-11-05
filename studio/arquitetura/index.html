@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="/site-entry-guard.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071522">
+  <meta name="description" content="Transforme uma necessidade de negócio em decisões de arquitetura Java, diagramas C4 e de sequência e uma base de projeto editável.">
+  <link rel="canonical" href="https://eniglio.github.io/studio/arquitetura/">
+  <link rel="alternate" hreflang="pt-BR" href="https://eniglio.github.io/studio/arquitetura/">
+  <link rel="alternate" hreflang="en" href="https://eniglio.github.io/studio/arquitetura/?lang=en">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./studio.css">
+  <title>Architecture Studio — Eniglio Tech Press</title>
+</head>
+<body>
+  <div class="backdrop-grid" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="/jogos/" aria-label="Voltar aos jogos">
+      <span class="brand-mark">E<span>↗</span></span>
+      <span>ENIGLIO <small>ARCHITECTURE STUDIO</small></span>
+    </a>
+    <div class="topbar-actions">
+      <span class="privacy-chip"><i></i><span data-i18n="localPrivacy">SEUS DADOS FICAM NESTE NAVEGADOR</span></span>
+      <button class="language-toggle" id="languageToggle" type="button">EN</button>
+      <button class="ollama-trigger" id="openOllama" type="button"><span class="ollama-orbit">◉</span><span data-i18n="connectOllama">Conectar Ollama local</span><i id="ollamaStatus" class="connection-status"></i></button>
+      <a class="back-link" href="/jogos/" data-i18n="backGames">← Jogos</a>
+    </div>
+  </header>
+
+  <main class="studio-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-live"></span><span data-i18n="eyebrow">DECISÕES DE ARQUITETURA · JAVA</span><span class="hero-version">STUDIO 01</span></div>
+        <h1 data-i18n-html="heroTitle">Da necessidade ao<br><em>sistema Java.</em></h1>
+        <p data-i18n="heroBody">Descreva o que a empresa precisa fazer. Explore as decisões em conjunto e saia com arquitetura explicada, diagramas e uma base de código para sua equipe revisar.</p>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+        <div class="orbit-core"><span>J</span><small>JAVA</small></div>
+        <span class="orbit-tag tag-api">API</span><span class="orbit-tag tag-data">DATA</span><span class="orbit-tag tag-domain">DOMAIN</span>
+      </div>
+    </section>
+
+    <div class="studio-layout">
+      <aside class="step-rail" aria-label="Etapas do Architecture Studio">
+        <div class="rail-label" data-i18n="projectRoom">WORKSPACE / NOVO PROJETO</div>
+        <button class="rail-step active" data-step="0" type="button"><span class="step-index">01</span><span class="step-copy"><strong data-i18n="stepBrief">Problema</strong><small data-i18n="stepBriefSub">Defina o resultado</small></span><i>↗</i></button>
+        <button class="rail-step" data-step="1" type="button"><span class="step-index">02</span><span class="step-copy"><strong data-i18n="stepConstraints">Restrições</strong><small data-i18n="stepConstraintsSub">Contexto operacional</small></span><i>↗</i></button>
+        <button class="rail-step" data-step="2" type="button"><span class="step-index">03</span><span class="step-copy"><strong data-i18n="stepArchitecture">Arquitetura</strong><small data-i18n="stepArchitectureSub">Escolha os eixos</small></span><i>↗</i></button>
+        <button class="rail-step" data-step="3" type="button"><span class="step-index">04</span><span class="step-copy"><strong data-i18n="stepArtifacts">Entregáveis</strong><small data-i18n="stepArtifactsSub">Diagramas e código</small></span><i>↗</i></button>
+        <div class="rail-bottom">
+          <div class="rail-progress"><div class="progress-track"><i id="progressFill"></i></div><span id="progressLabel">25%</span></div>
+          <div class="rail-note"><span>✳</span><p data-i18n="railNote">A recomendação mostra premissas e trade-offs. Você decide o que permanece.</p></div>
+          <a href="/games/decisao-cio/" class="mini-game"><span class="mini-game-icon">↗</span><span><strong data-i18n="otherTool">Simular decisão CIO</strong><small data-i18n="otherToolSub">Valor · custo · risco</small></span><span>→</span></a>
+        </div>
+      </aside>
+
+      <section class="work-area" id="workArea">
+        <div class="work-topline">
+          <div><span class="section-kicker" id="sectionKicker">01 / PROBLEMA</span><span class="autosave" id="saveState"><i></i><span data-i18n="savedLocally">RASCUNHO LOCAL</span></span></div>
+          <div class="project-name-top"><span class="project-led"></span><span id="projectNamePreview">Novo projeto</span></div>
+        </div>
+
+        <section class="step-panel" data-panel="0">
+          <div class="panel-heading">
+            <div><div class="panel-overline" data-i18n="briefOverline">COMECE PELO TRABALHO</div><h2 data-i18n="briefTitle">O que o sistema precisa fazer?</h2><p data-i18n="briefIntro">Conte o problema em linguagem direta. A equipe transforma isso em decisões técnicas rastreáveis.</p></div>
+            <span class="panel-glyph">⌘</span>
+          </div>
+          <div class="field-grid two">
+            <label class="field"><span data-i18n="projectLabel">Nome do projeto</span><input id="projectName" maxlength="72" value="Plataforma de solicitações" placeholder="Ex.: Portal de solicitações"></label>
+            <label class="field"><span data-i18n="systemKind">Tipo de sistema</span><select id="systemKind"><option value="api" data-i18n="kindApi">API / serviço de negócio</option><option value="web" data-i18n="kindWeb">Aplicação web para equipes</option><option value="batch" data-i18n="kindBatch">Processamento em lote</option><option value="integration" data-i18n="kindIntegration">Integração entre sistemas</option><option value="worker" data-i18n="kindWorker">Consumidor de eventos</option></select></label>
+          </div>
+          <label class="field brief-field"><span data-i18n="descriptionLabel">Descreva com precisão o que você quer que aconteça</span><span class="field-hint" data-i18n="descriptionHint">Inclua quem usa, a tarefa, os sistemas envolvidos e como reconhecer o sucesso.</span><textarea id="brief" rows="7" maxlength="4000" placeholder="Ex.: Um analista recebe solicitações de acesso por e-mail, valida a aprovação do gestor e libera o acesso em até quatro horas. Hoje não há rastreabilidade e os pedidos são esquecidos. Precisamos registrar quem pediu, qual recurso, a aprovação e a data de conclusão."></textarea><span class="field-counter"><span id="briefCount">0</span> / 4000</span></label>
+          <div class="prompt-suggestions"><span data-i18n="tryExample">EXPERIMENTE UM EXEMPLO</span><button type="button" class="example-chip" data-example="requests" data-i18n="exampleAccess">Solicitações de acesso</button><button type="button" class="example-chip" data-example="orders" data-i18n="exampleOrders">Pedidos e pagamentos</button><button type="button" class="example-chip" data-example="docs" data-i18n="exampleDocs">Análise de documentos</button></div>
+          <div class="brief-actions"><button class="secondary-button" id="analyzeBrief" type="button"><span>✦</span><span data-i18n="analyzeBrief">Organizar requisitos</span></button><span class="tiny-note" data-i18n="aiOptional">Funciona sem IA. Ollama local é opcional.</span></div>
+          <div class="advisor-card" id="briefAdvisor" hidden>
+            <div class="advisor-head"><span class="advisor-avatar">A</span><div><strong data-i18n="advisorTitle">Mapa inicial do problema</strong><small data-i18n="rulesEngine">ANÁLISE ESTRUTURADA · REVISÁVEL</small></div><button class="icon-button" id="closeAdvisor" type="button" aria-label="Fechar">×</button></div>
+            <div class="advisor-content" id="advisorContent"></div>
+            <div class="advisor-chat"><div class="chat-log" id="chatLog" aria-live="polite"></div><form id="advisorForm"><input id="advisorQuestion" maxlength="500" placeholder="Pergunte sobre uma decisão ou risco..." data-i18n-placeholder="askPlaceholder"><button type="submit" aria-label="Enviar pergunta">↑</button></form><small data-i18n="chatPrivacy">A conversa só é enviada ao Ollama local se ele estiver conectado.</small></div>
+          </div>
+          <div class="panel-actions"><span class="required-note"><b>*</b> <span data-i18n="requiredFields">Campos essenciais para gerar diagramas</span></span><button class="primary-button next-step" data-next="1" type="button"><span data-i18n="continue">Definir contexto</span><span>→</span></button></div>
+        </section>
+
+        <section class="step-panel" data-panel="1" hidden>
+          <div class="panel-heading"><div><div class="panel-overline" data-i18n="constraintsOverline">O CONTEXTO MUDA A DECISÃO</div><h2 data-i18n="constraintsTitle">Quais são os limites reais?</h2><p data-i18n="constraintsIntro">Estas respostas influenciam disponibilidade, segurança e custo operacional.</p></div><span class="panel-glyph">◈</span></div>
+          <div class="field-grid two">
+            <label class="field"><span data-i18n="usersScale">Volume esperado</span><select id="volume"><option value="small" data-i18n="volumeSmall">Até 5 mil operações/mês</option><option value="medium" data-i18n="volumeMedium">5 mil a 1 milhão/mês</option><option value="large" data-i18n="volumeLarge">Mais de 1 milhão/mês</option><option value="unknown" data-i18n="unknown">Ainda não sei</option></select></label>
+            <label class="field"><span data-i18n="availability">Disponibilidade exigida</span><select id="availability"><option value="business" data-i18n="availabilityBusiness">Horário comercial</option><option value="extended" data-i18n="availabilityExtended">Estendida, com janela de manutenção</option><option value="critical" data-i18n="availabilityCritical">Crítica, operação contínua</option><option value="unknown" data-i18n="unknown">Ainda não sei</option></select></label>
+            <label class="field"><span data-i18n="dataSensitivity">Sensibilidade dos dados</span><select id="sensitivity"><option value="internal" data-i18n="dataInternal">Uso interno</option><option value="personal" data-i18n="dataPersonal">Dados pessoais</option><option value="regulated" data-i18n="dataRegulated">Regulado / alto impacto</option><option value="unknown" data-i18n="unknown">Ainda não sei</option></select></label>
+            <label class="field"><span data-i18n="teamSize">Equipe responsável</span><select id="team"><option value="small" data-i18n="teamSmall">1–5 pessoas · um time</option><option value="medium" data-i18n="teamMedium">6–15 pessoas · vários domínios</option><option value="large" data-i18n="teamLarge">Mais de 15 pessoas</option><option value="unknown" data-i18n="unknown">Ainda não sei</option></select></label>
+            <label class="field"><span data-i18n="integrations">Dependências externas</span><select id="integrations"><option value="few" data-i18n="integrationsFew">Nenhuma ou poucas</option><option value="some" data-i18n="integrationsSome">Várias APIs externas</option><option value="many" data-i18n="integrationsMany">Muitos domínios/sistemas</option></select></label>
+            <label class="field"><span data-i18n="consistency">Consistência dos dados</span><select id="consistency"><option value="strong" data-i18n="consistencyStrong">Imediata · confirmação síncrona</option><option value="eventual" data-i18n="consistencyEventual">Pode ser eventual / assíncrona</option><option value="mixed" data-i18n="consistencyMixed">Depende do caso de uso</option></select></label>
+            <label class="field"><span data-i18n="independentDeploy">Implantação independente por domínio</span><select id="independentDeploy"><option value="no" data-i18n="independentNo">Não é necessária no momento</option><option value="some" data-i18n="independentSome">Seria útil em alguns domínios</option><option value="must" data-i18n="independentMust">É um requisito explícito</option></select></label>
+            <label class="field"><span data-i18n="storage">Persistência dos dados</span><select id="storage"><option value="postgres" data-i18n="storagePostgres">Banco relacional · PostgreSQL</option><option value="external" data-i18n="storageExternal">Banco já existente / externo</option><option value="none" data-i18n="storageNone">Sem persistência nesta primeira versão</option></select></label>
+          </div>
+          <div class="constraint-callout"><span>ⓘ</span><p data-i18n="constraintNote">Volume, criticidade e múltiplos times podem justificar mais isolamento operacional. Sozinhos, não provam que microserviços serão mais baratos ou mais simples.</p></div>
+          <div class="economics">
+            <div class="economics-heading"><div><span class="panel-overline" data-i18n="roiOverline">UMA ESTIMATIVA É TÃO BOA QUANTO SUAS PREMISSAS</span><h3 data-i18n="roiTitle">Rascunho de valor e custo</h3></div><span class="editable-pill" data-i18n="editable">EDITÁVEL</span></div>
+            <div class="field-grid five">
+              <label class="field compact"><span data-i18n="monthlyVolume">Operações/mês</span><input id="roiVolume" type="number" min="0" value="4000"></label>
+              <label class="field compact"><span data-i18n="minutesSaved">Minutos poupados/operação</span><input id="minutesSaved" type="number" min="0" value="8"></label>
+              <label class="field compact"><span data-i18n="hourlyCost">Custo-hora carregado (R$)</span><input id="hourlyCost" type="number" min="0" value="85"></label>
+              <label class="field compact"><span data-i18n="runCost">Custo operacional mensal (R$)</span><input id="runCost" type="number" min="0" value="1800"></label>
+              <label class="field compact"><span data-i18n="implementationCost">Investimento inicial (R$)</span><input id="implementationCost" type="number" min="0" value="120000"></label>
+            </div>
+            <div class="economics-results"><div><small data-i18n="annualBenefit">Benefício bruto anual</small><strong id="annualBenefitValue">R$ 0</strong></div><div><small data-i18n="yearOneNet">Saldo estimado no ano 1</small><strong id="yearOneNetValue">R$ 0</strong></div><div><small data-i18n="simpleRoi">ROI simples no ano 1</small><strong id="roiValue">—</strong></div><p data-i18n="roiDisclaimer">Modelo simplificado com seus valores: benefício = operações × minutos poupados × custo-hora. O saldo desconta investimento inicial e operação em 12 meses. Não é previsão financeira; valide premissas e adoção.</p></div>
+          </div>
+          <div class="panel-actions"><button class="text-button previous-step" data-prev="0" type="button">← <span data-i18n="back">Voltar</span></button><button class="primary-button next-step" data-next="2" type="button"><span data-i18n="chooseArchitecture">Explorar arquitetura</span><span>→</span></button></div>
+        </section>
+
+        <section class="step-panel" data-panel="2" hidden>
+          <div class="panel-heading"><div><div class="panel-overline" data-i18n="architectureOverline">ARQUITETURA É UM CONJUNTO DE DECISÕES</div><h2 data-i18n="architectureTitle">Escolha os eixos, não um rótulo.</h2><p data-i18n="architectureIntro">Organização do código, unidades de implantação e comunicação são dimensões diferentes. Combine-as para atender às restrições.</p></div><span class="panel-glyph">⌬</span></div>
+          <div class="axis-stack">
+            <section class="axis-card"><div class="axis-head"><div><span class="axis-number">A</span><div><strong data-i18n="topologyTitle">Unidade de implantação</strong><small data-i18n="topologySub">Quantos processos e versões você opera?</small></div></div><span class="axis-tip" data-i18n="topologyTip">COMECE SIMPLES</span></div>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="topology" value="modular" checked><span class="choice-check"></span><strong data-i18n="modularTitle">Monólito modular</strong><small data-i18n="modularDesc">Um deploy. Módulos e fronteiras explícitos. Menos peças operacionais.</small><span class="choice-reason" data-i18n="defaultReco">RECOMENDAÇÃO INICIAL</span></label>
+                <label class="choice-card"><input type="radio" name="topology" value="microservices"><span class="choice-check"></span><strong data-i18n="microTitle">Microserviços</strong><small data-i18n="microDesc">Serviços implantáveis independentemente. Exige plataforma, observabilidade e autonomia de times.</small></label>
+              </div>
+            </section>
+            <section class="axis-card"><div class="axis-head"><div><span class="axis-number">B</span><div><strong data-i18n="codeShapeTitle">Organização interna</strong><small data-i18n="codeShapeSub">Como manter regras de negócio isoladas da infraestrutura?</small></div></div><span class="axis-tip" data-i18n="mixTip">COMBINÁVEL COM A</span></div>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="codeShape" value="hexagonal" checked><span class="choice-check"></span><strong data-i18n="hexTitle">Portas e adaptadores</strong><small data-i18n="hexDesc">Domínio no centro. Integrações e persistência ficam atrás de interfaces.</small></label>
+                <label class="choice-card"><input type="radio" name="codeShape" value="layered"><span class="choice-check"></span><strong data-i18n="layeredTitle">Camadas</strong><small data-i18n="layeredDesc">API, aplicação, domínio e infraestrutura. Familiar e direto para fluxos simples.</small></label>
+              </div>
+            </section>
+            <section class="axis-card"><div class="axis-head"><div><span class="axis-number">C</span><div><strong data-i18n="communicationTitle">Comunicação entre componentes</strong><small data-i18n="communicationSub">O que precisa responder agora e o que pode seguir em segundo plano?</small></div></div><span class="axis-tip" data-i18n="combineTopology">INDEPENDENTE DA TOPOLOGIA</span></div>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="communication" value="sync" checked><span class="choice-check"></span><strong data-i18n="restTitle">REST síncrono</strong><small data-i18n="restDesc">Resposta imediata. Menos infraestrutura para chamadas diretas.</small></label>
+                <label class="choice-card"><input type="radio" name="communication" value="async"><span class="choice-check"></span><strong data-i18n="eventTitle">Eventos assíncronos</strong><small data-i18n="eventDesc">Desacopla consumidores quando atraso é aceitável. Adiciona broker, retries e reconciliação.</small></label>
+              </div>
+            </section>
+          </div>
+          <div class="architecture-rationale" id="architectureRationale"></div>
+          <div class="panel-actions"><button class="text-button previous-step" data-prev="1" type="button">← <span data-i18n="back">Voltar</span></button><button class="primary-button next-step" data-next="3" type="button"><span data-i18n="seeArtifacts">Ver entregáveis</span><span>→</span></button></div>
+        </section>
+
+        <section class="step-panel" data-panel="3" hidden>
+          <div class="panel-heading"><div><div class="panel-overline" data-i18n="artifactsOverline">PARA DISCUTIR COM SUA EQUIPE</div><h2 data-i18n="artifactsTitle">Uma proposta que dá para inspecionar.</h2><p data-i18n="artifactsIntro">Revise diagramas, premissas e arquivos. Edite as decisões e gere tudo novamente.</p></div><span class="panel-glyph">⌁</span></div>
+          <div class="recommendation-banner" id="recommendationBanner"></div>
+          <div class="artifact-tabs" role="tablist" aria-label="Entregáveis"><button class="artifact-tab active" type="button" data-artifact="c4-context" role="tab" aria-selected="true">C4 · Contexto</button><button class="artifact-tab" type="button" data-artifact="c4-container" role="tab" aria-selected="false">C4 · Contêineres</button><button class="artifact-tab" type="button" data-artifact="sequence" role="tab" aria-selected="false" data-i18n="sequenceTab">Sequência</button><button class="artifact-tab" type="button" data-artifact="decision" role="tab" aria-selected="false" data-i18n="decisionTab">Decisões</button><button class="artifact-tab" type="button" data-artifact="starter" role="tab" aria-selected="false">Java</button></div>
+          <div class="artifact-panel" id="artifactPanel" role="tabpanel"></div>
+          <div class="download-strip"><div><span class="download-icon">↓</span><div><strong data-i18n="downloadTitle">Leve a proposta para o repositório</strong><small data-i18n="downloadSub">Projeto Maven com código Java, README e diagramas em Markdown.</small></div></div><button class="download-button" id="downloadProject" type="button"><span data-i18n="downloadZip">Baixar projeto .zip</span><span>↓</span></button></div>
+          <div class="project-review"><span class="review-icon">◎</span><div><strong data-i18n="reviewTitle">Base inicial, não sistema pronto para produção.</strong><p data-i18n="reviewBody">A equipe ainda deve definir autenticação, autorização, persistência, observabilidade, política de retenção e critérios de aceite. Diagramas e código representam as premissas preenchidas nesta sessão.</p></div></div>
+          <div class="panel-actions"><button class="text-button previous-step" data-prev="2" type="button">← <span data-i18n="back">Voltar</span></button><button class="secondary-button" id="startOver" type="button"><span data-i18n="newProject">Novo projeto</span><span>↻</span></button></div>
+        </section>
+
+        <footer class="studio-footer"><span data-i18n="footerText">ARCHITECTURE DECISION WORKBENCH · PRÉVIA EDUCACIONAL</span><a href="/site-privacy.html" data-i18n="privacyLink">Privacidade do site</a></footer>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="ollamaDialog" class="ollama-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar">×</button></form>
+    <div class="dialog-kicker"><span class="ollama-orbit">◉</span><span data-i18n="localOllama">MODELO LOCAL · OPCIONAL</span></div>
+    <h2 data-i18n="ollamaTitle">Conecte seu Ollama</h2>
+    <p data-i18n="ollamaBody">A conexão vai do navegador ao Ollama neste computador. Nada é enviado a um serviço de IA da Eniglio.</p>
+    <label class="field"><span data-i18n="ollamaUrl">Endereço local</span><input id="ollamaUrl" type="url" value="http://localhost:11434"></label>
+    <label class="field"><span data-i18n="ollamaModel">Modelo instalado</span><select id="ollamaModel"><option value="">Detectar modelos</option></select></label>
+    <div class="ollama-actions"><button id="detectModels" class="secondary-button" type="button" data-i18n="detectModels">Testar e listar modelos</button><span id="ollamaMessage" role="status" aria-live="polite" data-i18n="ollamaDisconnected">Desconectado</span></div>
+    <details class="ollama-help"><summary data-i18n="ollamaHow">Como conectar</summary><p data-i18n-html="ollamaInstructions">Instale e inicie o Ollama no computador. Baixe um modelo com <code>ollama pull qwen3:8b</code>. Se o navegador bloquear a origem, configure <code>OLLAMA_ORIGINS=https://eniglio.github.io</code> e reinicie o Ollama. <a href="https://docs.ollama.com/" target="_blank" rel="noopener">Documentação oficial ↗</a></p></details>
+    <p class="dialog-warning" data-i18n="ollamaWarning">Não exponha a porta local do Ollama à internet. A conexão é apenas ao serviço local.</p>
+    <button class="primary-button dialog-done" id="doneOllama" type="button" data-i18n="done">Concluído</button>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./studio.js"></script>
+</body>
+</html>
