@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="/site-entry-guard.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3f5f2">
+  <meta name="description" content="Transforme uma necessidade de produto em uma proposta clara: experiência, componentes, fluxo e papel da IA.">
+  <link rel="canonical" href="https://eniglio.github.io/experimentos/mapa-da-solucao/">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./solution-map.css">
+  <title>Mapa da Solução — Eniglio Tech Press</title>
+</head>
+<body>
+  <a class="skip" href="#main">Pular para o conteúdo</a>
+  <header class="topbar"><a class="brand" href="/jogos/" aria-label="Voltar para Experimentos"><span class="brand-mark">E<span>↗</span></span><span>ENIGLIO <small>MAPA DA SOLUÇÃO</small></span></a><div class="top-right"><span class="local"><i></i> ANÁLISE LOCAL · RASCUNHO</span><a href="/jogos/">← Experimentos</a></div></header>
+  <main id="main" class="shell">
+    <section class="hero">
+      <div class="hero-text"><p class="eyebrow"><b>WORKBENCH 03</b> · DESCOBERTA DE PRODUTO</p><h1>Da necessidade<br>ao <em>que construir.</em></h1><p class="lede">Explique o que alguém precisa conseguir fazer. Receba uma proposta visual e técnica que ajuda produto, negócio e engenharia a conversar sobre a mesma solução.</p><div class="hero-path"><span><b>01</b> Necessidade</span><i>→</i><span><b>02</b> Solução</span><i>→</i><span><b>03</b> Fluxo visível</span></div></div>
+      <div class="hero-art" aria-label="Ilustração do processo: necessidade, decisão e solução"><div class="art-label">DO PROBLEMA AO PRIMEIRO DESENHO</div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-node node-need"><small>PRECISO</small><b>resolver<br>algo</b></div><div class="art-node node-decide"><small>ENTÃO</small><b>qual é o<br>caminho?</b></div><div class="art-node node-out"><small>RESULTADO</small><b>um plano<br>compreensível</b></div><div class="art-star">✳</div><div class="art-footer"><span>NECESSIDADE</span><span>DECISÃO</span><span>PROPOSTA</span></div></div>
+    </section>
+    <section class="workspace" aria-label="Análise de necessidade de produto">
+      <aside class="intake card"><div class="card-head"><div><p class="kicker">COMECE PELO USO</p><h2>O que precisa acontecer?</h2></div><span class="step">01 / 02</span></div><p class="intro">Descreva a necessidade com suas palavras. Se puder, diga quem enfrenta o problema, o que faz hoje e o que seria um bom resultado.</p>
+        <form id="ideaForm"><label class="field"><span>Nome da ideia <small>opcional</small></span><input id="ideaName" maxlength="70" placeholder="Ex.: Aprovação de despesas"></label><label class="field"><span>Necessidade ou oportunidade</span><textarea id="need" maxlength="1400" rows="7" required placeholder="Ex.: Gerentes perdem tempo reunindo notas e aprovando despesas pelo e-mail. Precisamos permitir que o funcionário envie comprovantes pelo celular e que o gestor aprove os casos dentro da política da empresa."></textarea><small class="counter"><span id="charCount">0</span>/1400</small></label>
+          <div class="field-grid"><label class="field"><span>Quem sente mais o problema?</span><select id="persona"><option value="colaborador">Pessoa usuária ou cliente</option><option value="ops">Operações / atendimento</option><option value="manager">Gestor ou aprovador</option><option value="system">Outro sistema / parceiro</option><option value="unknown">Ainda não sabemos</option></select></label><label class="field"><span>Volume esperado</span><select id="volume"><option value="unknown">Ainda não estimado</option><option value="low">Baixo / ocasional</option><option value="medium">Regular</option><option value="high">Alto / muitas solicitações</option></select></label></div>
+          <details class="advanced"><summary>O que já sabemos? <span>+</span></summary><div class="advanced-body"><label class="field"><span>Restrições importantes <small>opcional</small></span><input id="constraints" maxlength="240" placeholder="Ex.: precisa integrar com SAP; dados financeiros; prazo de 3 meses"></label><label class="field"><span>Como reconheceríamos sucesso? <small>opcional</small></span><input id="success" maxlength="240" placeholder="Ex.: reduzir tempo de aprovação de 5 dias para 1"></label></div></details>
+          <div class="form-actions"><button class="primary" type="submit">Desenhar uma proposta <b>↗</b></button><button class="example" id="example" type="button">Carregar exemplo</button></div><p id="formStatus" class="status" role="status" aria-live="polite"></p></form>
+          <p class="privacy-note"><span>⌑</span> Seu texto fica neste navegador. Esta ferramenta usa regras transparentes; não envia dados para um modelo de IA.</p>
+      </aside>
+      <section class="output card" id="output" aria-live="polite">
+        <div class="empty" id="empty"><div class="empty-graphic"><div class="empty-ring"></div><span>?</span><i class="float f1">necessidade</i><i class="float f2">decisão</i><i class="float f3">experiência</i></div><p class="kicker">UM RASCUNHO PARA CONVERSAR</p><h2>Comece pelo que a pessoa<br>precisa conseguir fazer.</h2><p>O mapa vai organizar a ideia em uma recomendação, nos blocos de trabalho e num desenho simples para revisar com a equipe.</p><button type="button" class="secondary" id="tryExample">Ver um exemplo <b>↓</b></button></div>
+        <div class="results" id="results" hidden>
+          <div class="result-head"><div><p class="kicker"><span class="pulse"></span> PROPOSTA INICIAL · REVISE COM A EQUIPE</p><h2 id="resultName">Sua proposta</h2><p id="resultNeed" class="result-need"></p></div><div class="result-actions"><button class="tool-btn" id="copy" type="button">Copiar resumo <span>⧉</span></button><button class="tool-btn" id="reset" type="button" aria-label="Limpar análise">Nova ideia <span>↻</span></button></div></div>
+          <div class="recommendation" id="recommendation"></div>
+          <div class="signals" id="signals"></div>
+          <div class="tabs" role="tablist" aria-label="Partes da proposta"><button class="tab active" role="tab" aria-selected="true" aria-controls="panel-map" id="tab-map" data-tab="map">01 <span>Desenho</span></button><button class="tab" role="tab" aria-selected="false" aria-controls="panel-build" id="tab-build" data-tab="build">02 <span>O que construir</span></button><button class="tab" role="tab" aria-selected="false" aria-controls="panel-decisions" id="tab-decisions" data-tab="decisions">03 <span>Decisões em aberto</span></button></div>
+          <section class="panel active" id="panel-map" role="tabpanel" aria-labelledby="tab-map" data-panel="map"><div class="panel-title"><div><p class="kicker">FLUXO PROPOSTO</p><h3 id="flowTitle">Como a solução pode funcionar</h3></div><span class="draft-tag">HIPÓTESE DE PRODUTO</span></div><p id="flowCaption" class="panel-copy"></p><div class="diagram-wrap"><div id="diagram" class="diagram"></div></div><div id="uxArea"></div><p class="diagram-legend"><i class="legend-person"></i> pessoa / sistema <i class="legend-step"></i> ação ou componente <i class="legend-data"></i> dados ou serviço externo</p></section>
+          <section class="panel" id="panel-build" role="tabpanel" aria-labelledby="tab-build" data-panel="build" hidden><div class="panel-title"><div><p class="kicker">DO DESENHO AO TRABALHO</p><h3>Blocos que precisam ser avaliados</h3></div><span class="draft-tag">NÃO É ESCOPO FECHADO</span></div><p class="panel-copy">Itens iniciais para a equipe dimensionar. Confirme regras, integrações, dados existentes, segurança e critérios de aceite.</p><div id="workList" class="work-list"></div><div class="ai-card" id="aiCard"></div></section>
+          <section class="panel" id="panel-decisions" role="tabpanel" aria-labelledby="tab-decisions" data-panel="decisions" hidden><div class="panel-title"><div><p class="kicker">ANTES DE COMPROMETER PRAZO OU CUSTO</p><h3>O que precisamos descobrir?</h3></div><span class="draft-tag">PERGUNTAS PARA REFINAR</span></div><p class="panel-copy">Estas perguntas reduzem suposições e ajudam a transformar o mapa em requisitos verificáveis.</p><ol id="questions" class="questions"></ol><div class="assumptions-note" id="assumptionsNote"></div></section>
+          <div class="results-foot"><span>RASCUNHO LOCAL · SEM VALIDAÇÃO DE ARQUITETURA</span><a href="/experimentos/planejador/">Levar a ideia ao Plano de Entrega ↗</a></div>
+        </div>
+      </section>
+    </section>
+    <footer class="page-foot"><span>© 2026 Eniglio Tech Press · Ferramenta de descoberta de produto</span><span>Proposta heurística: valide com usuários, negócio, segurança e engenharia.</span></footer>
+  </main><div id="toast" class="toast" role="status" aria-live="polite"></div><script src="./solution-map.js"></script>
+</body>
+</html>
