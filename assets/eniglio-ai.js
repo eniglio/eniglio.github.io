@@ -37,14 +37,14 @@
     color: '#183247', background: '#fff', font: '15px/1.6 system-ui,sans-serif',
   })
   dialog.innerHTML = `
-    <h2 id="eniglio-ai-title">Consultar a Groq</h2>
+    <h2 id="eniglio-ai-title">Consultar IA</h2>
     <p>O assistente privado abre em outra aba e exige login com ChatGPT.</p>
     <label style="display:block;font-weight:650" for="eniglio-ai-question">Pergunta inicial</label>
     <textarea id="eniglio-ai-question" rows="3" maxlength="6000" style="width:100%;font:inherit;border:1px solid #adc5ce;border-radius:8px;padding:10px"></textarea>
     <p><label><input id="eniglio-ai-include" type="checkbox"> Incluir o contexto desta tela</label></p>
     <label style="display:block;font-weight:650" for="eniglio-ai-context">Contexto para revisar</label>
     <textarea id="eniglio-ai-context" rows="6" maxlength="18000" style="width:100%;font:inherit;border:1px solid #adc5ce;border-radius:8px;padding:10px" placeholder="Você também pode colar um contexto aqui."></textarea>
-    <p style="font-size:13px">Revise o texto. A pergunta e o contexto serão enviados à Groq quando você confirmar a consulta no assistente.</p>
+    <p style="font-size:13px">Revise o texto. A pergunta e o contexto serão enviados ao provedor selecionado quando você confirmar a consulta no assistente.</p>
     <p id="eniglio-ai-status" role="status"></p>
     <div style="display:flex;gap:10px;justify-content:end;flex-wrap:wrap">
       <button type="button" id="eniglio-ai-close">Fechar</button>
