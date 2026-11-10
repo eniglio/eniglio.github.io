@@ -1,1 +1,1 @@
-(()=>{let granted=false;try{granted=localStorage.getItem('eniglio-access-confirmed-v1')==='granted';}catch{}try{granted=granted||sessionStorage.getItem('eniglio-access-confirmed-v1')==='granted';}catch{}if(!granted){const requestedLang=new URLSearchParams(location.search).get('lang'),lang=location.pathname.startsWith('/en/')||requestedLang==='en'?'en':'pt';location.replace('/?lang='+lang+'&return='+encodeURIComponent(location.pathname+location.search));}})();
+// Public site pages do not require email registration.
